@@ -14,7 +14,7 @@ import TidePage from '../../pages/tide-page/tide-page.component';
 import WindPage from '../../pages/wind-speeds-page/wind-speeds-page.component';
 import WaterTempPage from '../../pages/water-temp-page/water-temp-page.component';
 
-const URL = "/jax-tides-experimental";
+const URL = "/jax-tides";
 
 const JTRouter = ({dates}) =>{
     return(

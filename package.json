@@ -1,7 +1,7 @@
 {
   "name": "jax-tides",
   "version": "0.2.0",
-  "homepage": "https://baraiboapex.github.io/jax-tides-experimental/",
+  "homepage": "https://baraiboapex.github.io/jax-tides/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
