@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/jax-tides-experimental/static/css/main.73719c14.chunk.css",
-    "main.js": "/jax-tides-experimental/static/js/main.42eea9a0.chunk.js",
-    "main.js.map": "/jax-tides-experimental/static/js/main.42eea9a0.chunk.js.map",
-    "runtime-main.js": "/jax-tides-experimental/static/js/runtime-main.12692fba.js",
-    "runtime-main.js.map": "/jax-tides-experimental/static/js/runtime-main.12692fba.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/jax-tides-experimental/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.beb80906.chunk.js": "/jax-tides-experimental/static/js/2.beb80906.chunk.js",
-    "static/js/2.beb80906.chunk.js.map": "/jax-tides-experimental/static/js/2.beb80906.chunk.js.map",
-    "index.html": "/jax-tides-experimental/index.html",
-    "precache-manifest.47c32137d48af547c0b1ac7fe5ec900e.js": "/jax-tides-experimental/precache-manifest.47c32137d48af547c0b1ac7fe5ec900e.js",
-    "service-worker.js": "/jax-tides-experimental/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/jax-tides-experimental/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.73719c14.chunk.css.map": "/jax-tides-experimental/static/css/main.73719c14.chunk.css.map",
-    "static/js/2.beb80906.chunk.js.LICENSE.txt": "/jax-tides-experimental/static/js/2.beb80906.chunk.js.LICENSE.txt",
-    "static/media/jax_tides.626134ea.svg": "/jax-tides-experimental/static/media/jax_tides.626134ea.svg",
-    "static/media/page-background.styles.scss": "/jax-tides-experimental/static/media/wallpaperflare.com_wallpaper.7cbb1989.jpg"
+    "main.css": "/jax-tides/static/css/main.dd708416.chunk.css",
+    "main.js": "/jax-tides/static/js/main.8881ae8c.chunk.js",
+    "main.js.map": "/jax-tides/static/js/main.8881ae8c.chunk.js.map",
+    "runtime-main.js": "/jax-tides/static/js/runtime-main.f491bac6.js",
+    "runtime-main.js.map": "/jax-tides/static/js/runtime-main.f491bac6.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/jax-tides/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.beb80906.chunk.js": "/jax-tides/static/js/2.beb80906.chunk.js",
+    "static/js/2.beb80906.chunk.js.map": "/jax-tides/static/js/2.beb80906.chunk.js.map",
+    "index.html": "/jax-tides/index.html",
+    "precache-manifest.9b48855c4e4616c1ec62ac2e30665e31.js": "/jax-tides/precache-manifest.9b48855c4e4616c1ec62ac2e30665e31.js",
+    "service-worker.js": "/jax-tides/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/jax-tides/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.dd708416.chunk.css.map": "/jax-tides/static/css/main.dd708416.chunk.css.map",
+    "static/js/2.beb80906.chunk.js.LICENSE.txt": "/jax-tides/static/js/2.beb80906.chunk.js.LICENSE.txt",
+    "static/media/jax_tides.626134ea.svg": "/jax-tides/static/media/jax_tides.626134ea.svg",
+    "static/media/page-background.styles.scss": "/jax-tides/static/media/wallpaperflare.com_wallpaper.7cbb1989.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.12692fba.js",
+    "static/js/runtime-main.f491bac6.js",
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.beb80906.chunk.js",
-    "static/css/main.73719c14.chunk.css",
-    "static/js/main.42eea9a0.chunk.js"
+    "static/css/main.dd708416.chunk.css",
+    "static/js/main.8881ae8c.chunk.js"
   ]
 }
