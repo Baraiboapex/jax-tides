@@ -33,7 +33,7 @@ const JTRouter = ({dates}) =>{
             />
             <br/>
             <Switch>
-                <Route exact path={URL+"/"}>
+                <Route exact path="/jax-tides/">
                     <TidePage 
                         dataUrls={[
                             'https://tidesandcurrents.noaa.gov/mdapi/latest/webapi/stations/8720218.json?type=tidepredictions&units=english',
@@ -44,7 +44,7 @@ const JTRouter = ({dates}) =>{
                         dataToFetch={"predictions"}
                     />
                 </Route>
-                <Route exact path={URL+"/watertemp"}>
+                <Route exact path="/jax-tides/watertemp">
                     <WaterTempPage
                         dataUrls={[
                             'https://tidesandcurrents.noaa.gov/mdapi/latest/webapi/stations/8720218.json?type=tidepredictions&units=english',
@@ -53,7 +53,7 @@ const JTRouter = ({dates}) =>{
                         dataToFetch={"data"}
                     />
                 </Route>
-                <Route exact path={URL+"/windspeeds"}>
+                <Route exact path="/jax-tides/windspeeds">
                     <WindPage
                         dataUrls={
                             [
