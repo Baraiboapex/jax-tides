@@ -17,7 +17,7 @@ const WithData = (WrappedComponent, pageName, hasList) => {
 
         componentDidMount(){
             this.getData();
-            window.setInterval(()=>this.getData(),10000);
+            window.setInterval(()=>this.getData(),100000);
         }
         
         getData = () => {
