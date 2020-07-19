@@ -15,8 +15,9 @@ export const reAddTransformedDataArray = data => ({
 });
 
 export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor, callBacks}) => dispatch => {
+       
         const getAllRequests = dataUrls.map(
-            url => fetch(url,{signal:abortController.signal}).then(res => {
+            url => fetch(url,{signal:abortController.signal, mode:'cors'}).then(res => {
                 if(res.ok){
                     return res.json();
                 }else{
@@ -28,8 +29,15 @@ export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetD
             })
         );
         
-        return Promise.all(getAllRequests)
+        return new Promise((resolve,reject) => {
+            
+            const dataAcquisitionTimeframe = setTimeout(()=>{
+                reject({name:"Data took too long to fetch"});
+            },60000);
+
+            Promise.all(getAllRequests)
             .then(fetchedData => {
+                clearTimeout(dataAcquisitionTimeframe)
                 dispatch({
                     type:FETCH_API_DATA,
                     payload:{
@@ -38,9 +46,10 @@ export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetD
                         currentPage:pageToGetDataFor
                     }
                 });
-
-                return Promise.resolve(fetchedData[1][dataToFetch]);
+                clearTimeout()
+                resolve(fetchedData[1][dataToFetch]);
             })
+        })
         
     }
 

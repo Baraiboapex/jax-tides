@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PageDataLoadingCard from '../../components/PageComponents/page-data-loading-card/page-data-loading-card.component';
 //import PageNoDataMessage from '../../components/PageComponents/page-no-data-message/page-no-data-message.component';
 import PageContainer from '../../components/PageComponents/page-container/page-container.component';
 import PageBodyList from '../../components/PageComponents/page-body-list/page-body-list.component';
@@ -47,11 +46,7 @@ const TidePage = ({station, data, filter, pageName, latestDataTime}) => {
 
         return (
             <div className="page-top d-flex container-fluid p-0">
-                {(data.length > 0) && (pageName === "TIDE_PAGE") ? (
-                    <PageContainer pageBody={pageBody1}/>
-                ) : (
-                    <PageDataLoadingCard dataType="Tides"/>
-                )}
+                <PageContainer pageBody={pageBody1}/>
             </div>
         );
 }
@@ -59,4 +54,4 @@ const TidePage = ({station, data, filter, pageName, latestDataTime}) => {
 //Create a curried function later!
 //ApplyHOCs(WithData(TidePage,"TIDE_PAGE"))(SortDataByTime)(DetermineDataEOD)
 
-export default WithData(TidePage,"TIDE_PAGE","LIST");
+export default WithData(TidePage,"Tides","LIST");

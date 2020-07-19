@@ -1,4 +1,14 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
 div.no-data-jt-dark-tran{
+    width:45vw;
+
+    @include media-breakpoint-down(sm) {
+        width:65vw;
+    }
+
     background-color:rgba(0,0,0,0.7);
     color:rgb(192, 192, 192);
 }

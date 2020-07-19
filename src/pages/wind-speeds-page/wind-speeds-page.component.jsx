@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PageDataLoadingCard from '../../components/PageComponents/page-data-loading-card/page-data-loading-card.component';
 //import PageNoDataMessage from '../../components/PageComponents/page-no-data-message/page-no-data-message.component';
 import PageContainer from '../../components/PageComponents/page-container/page-container.component';
 import PageBodyButtonGroup from '../../components/PageComponents/page-body-btn-group/page-body-btn-group.component';
@@ -46,7 +45,7 @@ class WindPage extends React.Component{
 
     render(){
         const {speedType} = this.state;
-        const {station, data, pageName } = this.props;
+        const {station} = this.props;
         const pageBody1 = (
                 <PageBodyTopCardJumbotron
                     customClasses="text-white mb-4" 
@@ -61,14 +60,10 @@ class WindPage extends React.Component{
 
         return (
             <div className="page-top d-flex container-fluid p-0">
-                {(data.length > 0) && (pageName === "WIND_SPEED_PAGE") ? (
-                    <PageContainer pageBody={pageBody1}/>
-                ) : (
-                    <PageDataLoadingCard dataType="Wind Speeds"/>
-                )}
+                <PageContainer pageBody={pageBody1}/>
             </div>
         );
     }
 }
 
-export default WithData(WindPage,"WIND_SPEED_PAGE");
+export default WithData(WindPage,"Wind Speeds");

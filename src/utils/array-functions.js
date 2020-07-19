@@ -1,7 +1,6 @@
 export function newArrayfromIndexes(indexes,arr){
     const newArray = [];
     if(arr.length > 4){
-        console.log(indexes);
         for(let i = 0; i <= indexes.length-1; i++){
             newArray.push(arr[indexes[i]]);
         }

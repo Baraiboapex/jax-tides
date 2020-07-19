@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PageDataLoadingCard from '../../components/PageComponents/page-data-loading-card/page-data-loading-card.component';
 //import PageNoDataMessage from '../../components/PageComponents/page-no-data-message/page-no-data-message.component';
 import PageContainer from '../../components/PageComponents/page-container/page-container.component';
 import PageBodyButtonGroup from '../../components/PageComponents/page-body-btn-group/page-body-btn-group.component';
@@ -49,7 +48,7 @@ class WaterTempPage extends React.Component{
     ];
     render(){
         const {tempUnit} = this.state;
-        const {data, station, pageName} = this.props;
+        const {data, station} = this.props;
         
         const pageBody1 = (
                 <PageBodyTopCardJumbotron
@@ -65,14 +64,10 @@ class WaterTempPage extends React.Component{
 
         return (
             <div className="page-top d-flex container-fluid p-0">
-                {(data.length > 0) && (pageName === "WATER_TEMP_PAGE") ? (
-                    <PageContainer pageBody={pageBody1}/>
-                ) : (
-                    <PageDataLoadingCard dataType="Water Temperature"/>
-                )}
+                <PageContainer pageBody={pageBody1}/>
             </div>
         );
     }
 }
 
-export default WithData(WaterTempPage,"WATER_TEMP_PAGE");
+export default WithData(WaterTempPage,"Water Temperature");

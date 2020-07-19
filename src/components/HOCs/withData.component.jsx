@@ -1,12 +1,15 @@
 import React from 'react';
 
+import PageDataLoadingCard from "../PageComponents/page-data-loading-card/page-data-loading-card.component";
+import PageNoDataMessage from "../PageComponents/page-no-data-message/page-no-data-message.component";
+
 import { NOAAFilteredDataTranslator } from '../../utils/noaa-data-translator';
 import { latestTime, isEOD, getFullDateForAPI, getNextDayDateForAPI } from '../../utils/time-parser-functions';
 import {setApiStartAndEndDates, fetchApiData, reAddTransformedDataArray} from "../../redux/actions/globalAjaxActions/globalAjax.actions";
 import {connect} from "react-redux";
 import {newArrayfromIndexes} from "../../utils/array-functions"
 
-//NOTE: Break the sorting portion of this HOC up into a separate HOC Later!
+//NOTE: Break the sorting portion and the EOD portion of this HOC up into a separate HOC Later!
 const WithData = (WrappedComponent, pageName, hasList) => {
     class WithData extends React.Component {
         state={
@@ -30,19 +33,20 @@ const WithData = (WrappedComponent, pageName, hasList) => {
             }
 
             fetchApiData(ApiDetails).then(data => {
-                console.log("bla");
+                console.log(data);
                 this.stateLatestDataTime(data,dataUrls);
                 reAddTransformedDataArray(this.sortDataByTime(data));
                 this.determineEOD(data);
                 if(this.state.isEOD){
                     reAddTransformedDataArray(this.sortDataByTime(newArrayfromIndexes([2,3,4,5],data)));
                 }
+                this.setState({loadingStatus:2});
             }).catch(err => {
+                this.setState({loadingStatus:1});
                 if(err.name !== "AbortError"){
                     console.log(err);
                 }
             });
-
         }
 
         determineEOD = data => {
@@ -85,18 +89,26 @@ const WithData = (WrappedComponent, pageName, hasList) => {
         }
 
         render(){
-            const {latestDataTime} = this.state;
+            const {latestDataTime, loadingStatus} = this.state;
             const {tideStationData} = this.props;
-            console.log(tideStationData.data);
-            return (
-                <WrappedComponent
-                    data={tideStationData.data}
-                    station={tideStationData.station}
-                    filter={this.pageDataFilter}
-                    latestDataTime={latestDataTime}
-                    pageName={tideStationData.currentPage}
-                />
-            );
+            switch(loadingStatus){
+                case 0:
+                    return <PageDataLoadingCard dataType={tideStationData.currentPage}/>;
+                case 1:
+                    return <PageNoDataMessage dataType={tideStationData.currentPage}  stationId={tideStationData.station.id}/>;
+                case 2:
+                    return (
+                        <WrappedComponent
+                            data={tideStationData.data}
+                            station={tideStationData.station}
+                            filter={this.pageDataFilter}
+                            latestDataTime={latestDataTime}
+                            pageName={tideStationData.currentPage}
+                        />
+                    );
+                default:
+                    return null;
+            }
         }
     }
 
