@@ -17,32 +17,41 @@ const WithData = (WrappedComponent, pageName, hasList) => {
         }
 
         abortFetch = new AbortController();
+        refreshInterval = null;
+        _isMounted = false;
 
         componentDidMount(){
+            this._isMounted = true;
             this.getData();
-            window.setInterval(()=>this.getData(),100000);
+            this.refreshInterval = window.setInterval(()=>this.getData(),5000);
         }
         
         getData = () => {
             const {fetchApiData, dataToFetch, dataUrls} = this.props;
-            
+            console.log("Interval for " + pageName);
             const ApiDetails = {
                 dataUrls,
                 dataToFetch,
                 abortController:this.abortFetch,
                 pageToGetDataFor:pageName
             };
-            
-            fetchApiData(ApiDetails).then(data => {
-                this.stateLatestDataTime(data,dataUrls);
-                this.determineEOD(data);
-                this.setState({loadingStatus:2});
-            }).catch(err => {
-                this.setState({loadingStatus:1});
-                if(err.name !== "AbortError"){
-                    console.log(err);
-                }
-            });
+            if(this._isMounted){
+                fetchApiData(ApiDetails).then(data => {
+                    this.stateLatestDataTime(data,dataUrls);
+                    this.determineEOD(data);
+                    if(this._isMounted){
+                        this.setState({loadingStatus:2});
+                    }
+                }).catch(err => {
+                    console.log(err.name);
+                    if(this._isMounted){
+                        this.setState({loadingStatus:1});
+                    }
+                    if(err.name !== "AbortError"){
+                        console.log(err);
+                    }
+                });
+            }
         }
 
         determineEOD = data => {
@@ -79,6 +88,8 @@ const WithData = (WrappedComponent, pageName, hasList) => {
 
         componentWillUnmount(){
             this.abortFetch.abort();
+            this._isMounted = false;
+            clearInterval(this.refreshInterval);
         }
 
         render(){

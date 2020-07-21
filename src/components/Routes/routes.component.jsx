@@ -70,11 +70,10 @@ const JTRouter = ({dates}) =>{
     );
 }
 
-
 const mapStateToProps = state => {
     return{
         dates:state.dates
     };
 };
 
-export default connect(mapStateToProps)(React.memo(JTRouter));
+export default connect(mapStateToProps)(JTRouter);
