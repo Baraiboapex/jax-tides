@@ -14,10 +14,10 @@ export const reAddTransformedDataArray = data => ({
     payload:data
 });
 
-export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor, callBacks}) => dispatch => {
+export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor}) => dispatch => {
        
         const getAllRequests = dataUrls.map(
-            url => fetch(url,{signal:abortController.signal, mode:'cors'}).then(res => {
+            url => fetch(url,{signal:abortController.signal}).then(res => {
                 if(res.ok){
                     return res.json();
                 }else{

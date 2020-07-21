@@ -4,7 +4,7 @@ import PageDataLoadingCard from "../PageComponents/page-data-loading-card/page-d
 import PageNoDataMessage from "../PageComponents/page-no-data-message/page-no-data-message.component";
 
 import { NOAAFilteredDataTranslator } from '../../utils/noaa-data-translator';
-import { latestTime, isEOD, getFullDateForAPI, getNextDayDateForAPI } from '../../utils/time-parser-functions';
+import { latestTime, isEOD} from '../../utils/time-parser-functions';
 import {setApiStartAndEndDates, fetchApiData, reAddTransformedDataArray} from "../../redux/actions/globalAjaxActions/globalAjax.actions";
 import {connect} from "react-redux";
 import {newArrayfromIndexes} from "../../utils/array-functions"
@@ -24,22 +24,18 @@ const WithData = (WrappedComponent, pageName, hasList) => {
         }
         
         getData = () => {
-            const {fetchApiData, dataToFetch, dataUrls, reAddTransformedDataArray} = this.props;
+            const {fetchApiData, dataToFetch, dataUrls} = this.props;
+            
             const ApiDetails = {
                 dataUrls,
                 dataToFetch,
                 abortController:this.abortFetch,
                 pageToGetDataFor:pageName
-            }
-
+            };
+            
             fetchApiData(ApiDetails).then(data => {
-                console.log(data);
                 this.stateLatestDataTime(data,dataUrls);
-                reAddTransformedDataArray(this.sortDataByTime(data));
                 this.determineEOD(data);
-                if(this.state.isEOD){
-                    reAddTransformedDataArray(this.sortDataByTime(newArrayfromIndexes([2,3,4,5],data)));
-                }
                 this.setState({loadingStatus:2});
             }).catch(err => {
                 this.setState({loadingStatus:1});
@@ -50,15 +46,12 @@ const WithData = (WrappedComponent, pageName, hasList) => {
         }
 
         determineEOD = data => {
-            const {setApiStartAndEndDates} = this.props;
+            const {reAddTransformedDataArray} = this.props;
             if(hasList === "LIST"){
                 if(isEOD(data)){
-                    this.setState({isEOD:true});
-                    setApiStartAndEndDates({
-                        startDate:getFullDateForAPI(),
-                        endDate:getNextDayDateForAPI()
-                    });
-                    this.getData();
+                    reAddTransformedDataArray(this.sortDataByTime(newArrayfromIndexes([2,3,4,5],data)));
+                }else{
+                    reAddTransformedDataArray(this.sortDataByTime(newArrayfromIndexes([0,1,2,3],data)));
                 }
             }
         } 
@@ -91,6 +84,7 @@ const WithData = (WrappedComponent, pageName, hasList) => {
         render(){
             const {latestDataTime, loadingStatus} = this.state;
             const {tideStationData} = this.props;
+
             switch(loadingStatus){
                 case 0:
                     return <PageDataLoadingCard dataType={tideStationData.currentPage}/>;

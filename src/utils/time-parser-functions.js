@@ -43,7 +43,7 @@ export function getFullDateForAPI(){
   return fullDateForAPI;
 }
 
-export function isEOD(times){ 
+export function isEOD(times){
     const allTimes = times.map(time => moment(time.t));
     const latestTime = moment.max(allTimes);
     return moment(new Date()).valueOf() > latestTime;

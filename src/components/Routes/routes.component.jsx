@@ -1,5 +1,5 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React from 'react';
+import {connect} from 'react-redux';
 import {ReactComponent as Logo} from '../../assets/jax_tides.svg';
 
 import {
@@ -7,7 +7,7 @@ import {
     Switch,
     Route,
     Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 import PageNavBar from '../PageComponents/page-navbar/page-navbar.component';
 import TidePage from '../../pages/tide-page/tide-page.component';
@@ -17,6 +17,7 @@ import WaterTempPage from '../../pages/water-temp-page/water-temp-page.component
 const URL = "/jax-tides";
 
 const JTRouter = ({dates}) =>{
+    const {startDate, endDate} = dates;
     return(
         <Router>
             <br/>
@@ -37,7 +38,7 @@ const JTRouter = ({dates}) =>{
                     <TidePage 
                         dataUrls={[
                             'https://tidesandcurrents.noaa.gov/mdapi/latest/webapi/stations/8720218.json?type=tidepredictions&units=english',
-                            `https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${dates.startDate}&end_date=${dates.endDate}&datum=MLLW&station=8720218&time_zone=lst_ldt&units=english&interval=hilo&format=json&application=NOS.COOPS.TAC.TidePred`
+                            `https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${startDate}&end_date=${endDate}&datum=MLLW&station=8720218&time_zone=lst_ldt&units=english&interval=hilo&format=json&application=NOS.COOPS.TAC.TidePred`
                         ]}
                         dataFilterValues={["t","v","type"]}
                         dataFilterType={"TideData"}
@@ -76,4 +77,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(JTRouter);
+export default connect(mapStateToProps)(React.memo(JTRouter));
