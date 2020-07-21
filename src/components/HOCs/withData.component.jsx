@@ -23,12 +23,11 @@ const WithData = (WrappedComponent, pageName, hasList) => {
         componentDidMount(){
             this._isMounted = true;
             this.getData();
-            this.refreshInterval = window.setInterval(()=>this.getData(),5000);
+            this.refreshInterval = window.setInterval(()=>this.getData(),10000);
         }
         
         getData = () => {
             const {fetchApiData, dataToFetch, dataUrls} = this.props;
-            console.log("Interval for " + pageName);
             const ApiDetails = {
                 dataUrls,
                 dataToFetch,
