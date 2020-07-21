@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6872a07625016fa6c22501e23d4d0bf2",
+    "revision": "6b16e473c3574ffd57d7613869469038",
     "url": "/jax-tides/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jax-tides/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "3cc1200c4e497b399799",
-    "url": "/jax-tides/static/css/main.5a9d7cd5.chunk.css"
+    "revision": "7bc273b9372cc46768e8",
+    "url": "/jax-tides/static/css/main.4d9139bb.chunk.css"
   },
   {
     "revision": "30488edff8c6889db8db",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jax-tides/static/js/2.3fdd51b0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3cc1200c4e497b399799",
-    "url": "/jax-tides/static/js/main.5a2379e8.chunk.js"
+    "revision": "7bc273b9372cc46768e8",
+    "url": "/jax-tides/static/js/main.c7b9b231.chunk.js"
   },
   {
     "revision": "a06d38831e2849dcefef",
