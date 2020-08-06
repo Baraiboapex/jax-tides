@@ -15,9 +15,9 @@ export const reAddTransformedDataArray = data => ({
 });
 
 export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor}) => dispatch => {
-       
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const getAllRequests = dataUrls.map(
-            url => fetch(url,{signal:abortController.signal}).then(res => {
+            url => fetch(proxyurl + url,{signal:abortController.signal}).then(res => {
                 if(res.ok){
                     return res.json();
                 }else{
