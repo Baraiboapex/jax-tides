@@ -14,7 +14,7 @@ export const reAddTransformedDataArray = data => ({
     payload:data
 });
 
-export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor}) => dispatch => {
+export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor, cacheResVal}) => dispatch => {
         const proxyurl = "https://mb-cors-proxy.herokuapp.com/";
         const getAllRequests = dataUrls.map(
             url => fetch(proxyurl + url,{signal:abortController.signal}).then(res => {
@@ -38,13 +38,22 @@ export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetD
             Promise.all(getAllRequests)
             .then(fetchedData => {
                 clearTimeout(dataAcquisitionTimeframe)
+
+                const dispatchVals = {
+                    station:fetchedData[0].stations[0],
+                    data:fetchedData[1][dataToFetch],
+                    currentPage:pageToGetDataFor
+                }
+
+                if(cacheResVal && !localStorage.getItem(cacheResVal)){
+                    const queriedCacheVal = cacheResVal.child ? dispatchVals[cacheResVal.parent][cacheResVal.child] : dispatchVals[cacheResVal.parent];
+                    console.log(queriedCacheVal);
+                    localStorage.setItem(cacheResVal.keyName, JSON.stringify(queriedCacheVal));
+                }
+
                 dispatch({
                     type:FETCH_API_DATA,
-                    payload:{
-                        station:fetchedData[0].stations[0],
-                        data:fetchedData[1][dataToFetch],
-                        currentPage:pageToGetDataFor
-                    }
+                    payload:dispatchVals
                 });
                 clearTimeout()
                 resolve(fetchedData[1][dataToFetch]);

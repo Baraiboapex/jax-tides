@@ -32,7 +32,8 @@ const WithData = (WrappedComponent, pageName, hasList) => {
                 dataUrls,
                 dataToFetch,
                 abortController:this.abortFetch,
-                pageToGetDataFor:pageName
+                pageToGetDataFor:pageName,
+                cacheResVal:{keyName:"stationId", parent:"station", child:"id"}
             };
             if(this._isMounted){
                 fetchApiData(ApiDetails).then(data => {
@@ -95,11 +96,13 @@ const WithData = (WrappedComponent, pageName, hasList) => {
             const {latestDataTime, loadingStatus} = this.state;
             const {tideStationData} = this.props;
 
+            const cachedStation = JSON.parse(localStorage.getItem("stationId"));
+
             switch(loadingStatus){
                 case 0:
                     return <PageDataLoadingCard dataType={tideStationData.currentPage}/>;
                 case 1:
-                    return <PageNoDataMessage dataType={tideStationData.currentPage}  stationId={tideStationData.station.id}/>;
+                    return <PageNoDataMessage dataType={tideStationData.currentPage}  stationId={cachedStation}/>;
                 case 2:
                     return (
                         <WrappedComponent

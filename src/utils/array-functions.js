@@ -8,3 +8,7 @@ export function newArrayfromIndexes(indexes,arr){
     }
     return arr;
 }
+
+export function queryJSONObject(query, obj){
+    //write this function put later! See if you can get it to O(1)!
+}
