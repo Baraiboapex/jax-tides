@@ -1,27 +1,17 @@
 {
   "files": {
-    "main.css": "/jax-tides/static/css/main.4d9139bb.chunk.css",
-    "main.js": "/jax-tides/static/js/main.aa13003d.chunk.js",
-    "main.js.map": "/jax-tides/static/js/main.aa13003d.chunk.js.map",
-    "runtime-main.js": "/jax-tides/static/js/runtime-main.f491bac6.js",
-    "runtime-main.js.map": "/jax-tides/static/js/runtime-main.f491bac6.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/jax-tides/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.0ec9a63b.chunk.js": "/jax-tides/static/js/2.0ec9a63b.chunk.js",
-    "static/js/2.0ec9a63b.chunk.js.map": "/jax-tides/static/js/2.0ec9a63b.chunk.js.map",
+    "main.css": "/jax-tides/static/css/main.28b865f4.css",
+    "main.js": "/jax-tides/static/js/main.ce35a2e0.js",
+    "static/media/ocean-water-wave-photo-1295138.jpg": "/jax-tides/static/media/ocean-water-wave-photo-1295138.570a462b96e9d581812e.jpg",
+    "static/media/wallpaperflare.com_wallpaper.jpg": "/jax-tides/static/media/wallpaperflare.com_wallpaper.c786b7280d5cb54e3390.jpg",
+    "static/media/sunset-984052_1920.jpg": "/jax-tides/static/media/sunset-984052_1920.025894d0fd371b90e58f.jpg",
+    "static/media/jax_tides.svg": "/jax-tides/static/media/jax_tides.4d6a1901c34bce264b0eba6c3ae5addf.svg",
     "index.html": "/jax-tides/index.html",
-    "precache-manifest.83398a89127e7eeecc4d4faff9232176.js": "/jax-tides/precache-manifest.83398a89127e7eeecc4d4faff9232176.js",
-    "service-worker.js": "/jax-tides/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/jax-tides/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.4d9139bb.chunk.css.map": "/jax-tides/static/css/main.4d9139bb.chunk.css.map",
-    "static/js/2.0ec9a63b.chunk.js.LICENSE.txt": "/jax-tides/static/js/2.0ec9a63b.chunk.js.LICENSE.txt",
-    "static/media/jax_tides.626134ea.svg": "/jax-tides/static/media/jax_tides.626134ea.svg",
-    "static/media/page-background.styles.scss": "/jax-tides/static/media/wallpaperflare.com_wallpaper.7cbb1989.jpg"
+    "main.28b865f4.css.map": "/jax-tides/static/css/main.28b865f4.css.map",
+    "main.ce35a2e0.js.map": "/jax-tides/static/js/main.ce35a2e0.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.f491bac6.js",
-    "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.0ec9a63b.chunk.js",
-    "static/css/main.4d9139bb.chunk.css",
-    "static/js/main.aa13003d.chunk.js"
+    "static/css/main.28b865f4.css",
+    "static/js/main.ce35a2e0.js"
   ]
 }
