@@ -24,12 +24,16 @@ class PageBackground extends Component{
 
     setTimeOfDay = () => {
         const currentTime = getCurrent24HourTime();
-        if(moment(currentTime,"HH:mm").valueOf() > moment("17:30","HH:mm").valueOf())
+        if(
+            moment(currentTime,"HH:mm").valueOf() > moment("17:30","HH:mm").valueOf() && 
+            moment(currentTime,"HH:mm").valueOf() < moment("19:30","HH:mm").valueOf()
+        ){
             this.setState({timeOfDayImage:"evening-image"});
-        else if (moment(currentTime,"HH:mm").valueOf() > moment("19:30","HH:mm").valueOf())
-            this.setState({timeOfDayImage:"evening-image"});
-        else
+        }else if (moment(currentTime,"HH:mm").valueOf() > moment("19:30","HH:mm").valueOf()){
+            this.setState({timeOfDayImage:"night-image"});
+        }else{
             this.setState({timeOfDayImage:"day-image"});
+        }
     }
 
     render(){

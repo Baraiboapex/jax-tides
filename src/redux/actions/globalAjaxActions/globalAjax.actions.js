@@ -1,3 +1,5 @@
+import packageVars from "../../../../package.json"; 
+
 import {
     SET_API_START_AND_END_DATES,
     FETCH_API_DATA,
@@ -15,9 +17,9 @@ export const reAddTransformedDataArray = data => ({
 });
 
 export const fetchApiData = ({dataToFetch, dataUrls, abortController, pageToGetDataFor, cacheResVal}) => dispatch => {
-        const proxyurl = "https://mb-cors-proxy.herokuapp.com/";
+        const proxyurl = packageVars.proxy;
         const getAllRequests = dataUrls.map(
-            url => fetch(proxyurl + url,{signal:abortController.signal}).then(res => {
+            url => fetch(proxyurl,{headers:{'Target-URL':url}, signal:abortController.signal}).then(res => {
                 if(res.ok){
                     return res.json();
                 }else{

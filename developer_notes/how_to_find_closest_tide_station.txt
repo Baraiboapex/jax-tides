@@ -1,0 +1,7 @@
+How to find the closest tide station based on the user's current location:
+
+1.) Write a custom web service that utilizes Djikstra's algorithm to find the 
+closest tide station node.
+
+2.) Find out if the Noaa API can find the closest node for you without having to write the 
+custom web service as mentioned above! ;) 
