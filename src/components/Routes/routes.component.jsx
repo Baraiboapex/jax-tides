@@ -49,7 +49,7 @@ const JTRouter = ({dates}) =>{
                     <WaterTempPage
                         dataUrls={[
                             'https://tidesandcurrents.noaa.gov/mdapi/latest/webapi/stations/8720218.json?type=tidepredictions&units=english',
-                            `https://tidesandcurrents.noaa.gov/api/datagetter?&station=8720218&date=latest&units=english&datum=MLLW&product=water_temperature&time_zone=LST_LDT&format=json&application=NOS.COOPS.TAC.COOPSMAP&interval=`
+                            `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=water_temperature&begin_date=20240808&end_date=20240809&station=8720218&time_zone=GMT&units=english&interval=h&format=json&application=NOS.COOPS.TAC.PHYSOCEAN`
                         ]}
                         dataToFetch={"data"}
                     />
