@@ -100,9 +100,9 @@ const WithData = (WrappedComponent, pageName, hasList) => {
 
             switch(loadingStatus){
                 case 0:
-                    return <PageDataLoadingCard dataType={tideStationData.currentPage}/>;
+                    return <PageDataLoadingCard dataType={pageName}/>;
                 case 1:
-                    return <PageNoDataMessage dataType={tideStationData.currentPage}  stationId={cachedStation}/>;
+                    return <PageNoDataMessage dataType={pageName}  stationId={cachedStation}/>;
                 case 2:
                     return (
                         <WrappedComponent
