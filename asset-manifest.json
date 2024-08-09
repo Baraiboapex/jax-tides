@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/jax-tides/static/css/main.28b865f4.css",
-    "main.js": "/jax-tides/static/js/main.ce35a2e0.js",
+    "main.js": "/jax-tides/static/js/main.86006f70.js",
     "static/media/ocean-water-wave-photo-1295138.jpg": "/jax-tides/static/media/ocean-water-wave-photo-1295138.570a462b96e9d581812e.jpg",
     "static/media/wallpaperflare.com_wallpaper.jpg": "/jax-tides/static/media/wallpaperflare.com_wallpaper.c786b7280d5cb54e3390.jpg",
     "static/media/sunset-984052_1920.jpg": "/jax-tides/static/media/sunset-984052_1920.025894d0fd371b90e58f.jpg",
     "static/media/jax_tides.svg": "/jax-tides/static/media/jax_tides.4d6a1901c34bce264b0eba6c3ae5addf.svg",
     "index.html": "/jax-tides/index.html",
     "main.28b865f4.css.map": "/jax-tides/static/css/main.28b865f4.css.map",
-    "main.ce35a2e0.js.map": "/jax-tides/static/js/main.ce35a2e0.js.map"
+    "main.86006f70.js.map": "/jax-tides/static/js/main.86006f70.js.map"
   },
   "entrypoints": [
     "static/css/main.28b865f4.css",
-    "static/js/main.ce35a2e0.js"
+    "static/js/main.86006f70.js"
   ]
 }
