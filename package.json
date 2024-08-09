@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "homepage": "https://baraiboapex.github.io/jax-tides/",
   "private": true,
-  "proxy": "https://mb-cors-proxy-1.herokuapp.com/",
+  "proxy": "https://mb-cors-proxy.fly.dev/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@popperjs/core": "^2.4.0",
